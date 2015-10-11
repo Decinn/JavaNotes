@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+ <head>
+    <meta charset="UTF-8">
+	<title>Java2</title>
+</head>
+<body>
+<p>杨辉三角</p>
+<pre>
+public class yhtri
+{
+	public static void main(String[] args)
+	{
+		int i,j;
+		int level=7;
+		int[][] yh=new int[level][];
+		System.out.println("YHuiTriangle");
+		for(i=0;i&lt;level;i++)
+			yh[i]=new int[i+1]; //第i行有i+1列;
+		yh[0][0]=1;
+		for(i=1;i&lt;level;i++)
+		{
+			yh[i][0]=1;
+			for(j=1;j&lt;yh[i].length-1;j++)
+				yh[i][j]=yh[i-1][j-1]+yh[i-1][j];
+			yh[i][yh[i].length-1]=1;
+
+		}
+		for(int[] row:yh) //foreach语句,行
+		{
+			for(int col:row) //列
+				System.out.print(col+" ");
+			System.out.println();
+		}
+	}
+}
+</pre>
+
+</body>
+</html>
